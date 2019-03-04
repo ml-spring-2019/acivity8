@@ -2,7 +2,7 @@ import sys
 import csv
 import pdb
 import numpy as np
-from sklearn.cluster.KMeans
+from sklearn.cluster import KMeans
 from sklearn import svm
 
 def main(argv, argc):
@@ -11,18 +11,16 @@ def main(argv, argc):
         return 1
 
     file_a = open(argv[1], "r")
-    features, result = get_data(file_a)
+    features  = get_data(file_a)
 
 def get_data(file):
-    fileContents = csv.reader(file)
+    fileContents = csv.reader(file, delimiter=',')
     
-    features = []
-    result = []
+    data = []
     for row in fileContents:
-        features.append( [float(row[0]), float(row[1])] )
-        result.append(int(row[2]))
-    
-    return features, result
+        pdb.set_trace()
+        data.append( [float(row[0]), float(row[1])] )
+    return data
 
 
 
