@@ -39,7 +39,7 @@ def k_means_cluster(cluster_amount, features):
         centroid_1_group, centroid_2_group = compute_closeness(centroid_1, centroid_2, features)
         og_centroid_1 = centroid_1
         og_centroid_2 = centroid_2
-
+        
         centroid_1 = compute_centroid_means(centroid_1_group)
         centroid_2 = compute_centroid_means(centroid_2_group)
         print("\nResults for Iteration " + str(iteration + 1) + ":")
@@ -69,7 +69,7 @@ def compute_closeness(centroid_1, centroid_2, features):
         v2 = (centroid_2[1] - (i[1])) ** 2
         c2 = math.sqrt(v1 + v2)
 
-        if c1 > c2:
+        if c1 < c2:
             centroid_1_group.append(i)
         else:
             centroid_2_group.append(i)
